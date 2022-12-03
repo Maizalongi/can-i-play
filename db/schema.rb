@@ -10,9 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_03_190043) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_192223) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "consoles", force: :cascade do |t|
+    t.string "console"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.float "price"
+    t.string "name"
+    t.string "description"
+    t.boolean "active"
+    t.bigint "category_id", null: false
+    t.bigint "console_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_games_on_category_id"
+    t.index ["console_id"], name: "index_games_on_console_id"
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "rents", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.float "price"
+    t.boolean "status"
+    t.bigint "game_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_rents_on_game_id"
+    t.index ["user_id"], name: "index_rents_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_190043) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "games", "categories"
+  add_foreign_key "games", "consoles"
+  add_foreign_key "games", "users"
+  add_foreign_key "rents", "games"
+  add_foreign_key "rents", "users"
 end

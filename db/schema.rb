@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_192223) do
     t.float "price"
     t.string "name"
     t.string "description"
-    t.boolean "active"
+    t.boolean "active", default: true
     t.bigint "category_id", null: false
     t.bigint "console_id", null: false
     t.bigint "user_id", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_192223) do
     t.date "start_date"
     t.date "end_date"
     t.float "price"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

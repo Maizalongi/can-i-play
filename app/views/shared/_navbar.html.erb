@@ -3,7 +3,14 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
-
+    <%= link_to "Games", games_path, class: "btn-juegos" %>
+    <div class="btn-consolas">
+      Consoles
+    </div>
+    <div class="btn-gender">
+      Gender
+    </div>
+    <input type="search" id="busqueda" name="q"/>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,7 +33,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item ">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>

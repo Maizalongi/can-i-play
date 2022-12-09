@@ -6,7 +6,11 @@
     <%# game img %>
     <div class="col-12 col-md-4 d-flex flex-column gap-2">
       <%= image_tag "minecraft.jpg", class: "game-img-show" %>
-      <%= link_to "Rent", games_path , class: "btn btn-success" %>
+
+      <% if !@game.active %>
+        <%= link_to "Rent", games_path , class: "btn btn-success" %>
+      <% end %>
+
       <%= link_to "Add to wishlist", games_path, class: "btn btn-primary" %>
       <%= link_to "Edit", edit_game_path, class: "btn btn-primary" %>
       <%= link_to "Delete", game_path, class: "btn btn-danger" %>

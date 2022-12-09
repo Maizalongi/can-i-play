@@ -1,2 +1,29 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="container">
+
+  <%# game data %>
+  <div class="row my-4">
+
+    <%# game img %>
+    <div class="col-12 col-md-4 d-flex flex-column gap-2">
+      <%= image_tag "minecraft.jpg", class: "game-img-show" %>
+      <%= link_to "Rent", games_path , class: "btn btn-success" %>
+      <%= link_to "Add to wishlist", games_path, class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_game_path, class: "btn btn-primary" %>
+      <%= link_to "Delete", game_path, class: "btn btn-danger" %>
+    </div>
+
+    <%# game data %>
+    <div class="col-12 col-md-8">
+      <h1> <%= @game.name %> </h1>
+      <h3> <%= "Price: $#{@game.price}" %> </h3>
+      <p>  <%= @game.description %> </p>
+    </div>
+  </div>
+
+  <%# trailer %>
+  <div class="row my-4">
+
+    <iframe src="https://www.youtube.com/embed/jMe3tdyjouM" height="400px" frameborder="0"></iframe>
+  </div>
+
+</div>

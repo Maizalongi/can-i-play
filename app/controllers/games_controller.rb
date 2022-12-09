@@ -21,7 +21,7 @@ class GamesController < ApplicationController
   end
 
   def edit
-    @game.find(params[:id])
+    @game = Game.find(params[:id])
   end
 
   def update

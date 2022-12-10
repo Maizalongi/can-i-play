@@ -33,9 +33,9 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    @game = Game.find(game[:id])
+    @game = Game.find(params[:id])
     @game.destroy
-    redirect_to game_path, status: :see_other
+    redirect_to games_path, status: :see_other
   end
 end
 

@@ -21,7 +21,7 @@ class RentsController < ApplicationController
   end
 
   def edit
-    @rent.find(params[:id])
+    @rent = Rent.find(params[:id])
   end
 
   def update
@@ -31,7 +31,7 @@ class RentsController < ApplicationController
   end
 
   def destroy
-    @rent = Rent.find(rent[:id])
+    @rent = Rent.find(params[:id])
     @rent.destroy
     redirect_to rent_path, status: :see_other
   end
@@ -52,5 +52,5 @@ end
 private
 
 def rent_params
-  params.require(:rent).permit(:start_date, :price, :end_date, :status, :game_id, :user_id)
+  params.require(:rent).permit(:start_date, :price, :end_date, :game_id)
 end

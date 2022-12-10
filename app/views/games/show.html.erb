@@ -8,8 +8,6 @@
 
       <% if @game.image.attached? %>
         <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
-      <% else %>
-        <%= image_tag "minecraft.jpg", class: "game-img-show" %>
       <% end %>
 
       <% if !@game.active %>

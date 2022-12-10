@@ -8,6 +8,8 @@
           <%= f.input :name, label: "Enter the new name:" %>
           <%= f.input :price, label: "Enter the new price:" %>
           <%= f.input :description, label: "Enter the new description:" %>
+          <%= f.input :category, collection: Category.all.map { |c| c.category }, label: "Category:" %>
+          <%= f.input :console, collection: Console.all.map { |c| c.console }, label: "Console:" %>
           <%= f.input :active, as: :boolean %>
           <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>

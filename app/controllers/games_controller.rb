@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
   def index
     @games = Game.all
   end
@@ -13,6 +14,7 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(game_params)
+    @game.user = current_user
     if @game.save
       redirect_to game_path(@game)
     else
@@ -40,5 +42,5 @@ end
 private
 
 def game_params
-  params.require(:game).permit(:name, :price, :description, :active, :category_id, :console_id, :user_id)
+  params.require(:game).permit(:name, :price, :description, :category_id, :console_id)
 end

@@ -21,7 +21,7 @@ class RentsController < ApplicationController
   end
 
   def edit
-    @rent.find(params[:id])
+    @rent = Rent.find(params[:id])
   end
 
   def update

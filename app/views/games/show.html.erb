@@ -6,17 +6,41 @@
     <%# game img %>
     <div class="col-12 col-md-4 d-flex flex-column gap-2">
       <%= image_tag "minecraft.jpg", class: "game-img-show" %>
-      <%= link_to "Rent", games_path , class: "btn btn-success" %>
-      <%= link_to "Add to wishlist", games_path, class: "btn btn-primary" %>
+
+      <% if !@game.active %>
+        <%= link_to "Rent", games_path , class: "btn btn-success" %>
+      <% end %>
+
+      <%= link_to "Add to wishlist", games_path, class: "btn btn-primary", style: "--bs-btn-padding-x: 5px;" %>
       <%= link_to "Edit", edit_game_path, class: "btn btn-primary" %>
       <%= link_to "Delete", game_path, class: "btn btn-danger" %>
+
+      <%# This makes the the buttons less bigger  %>
+      <%# <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div> %>
+
     </div>
 
     <%# game data %>
     <div class="col-12 col-md-8">
-      <h1> <%= @game.name %> </h1>
-      <h3> <%= "Price: $#{@game.price}" %> </h3>
-      <p>  <%= @game.description %> </p>
+
+
+      <div class="d-flex flex-column justify-content-between border">
+        <div>
+          <h1> <%= @game.name %> </h1>
+          <h3> <%= "Price: $#{@game.price}" %> </h3>
+          <p>  <%= @game.description %> </p>
+        </div>
+        <ul class="game-data-list">
+          <li>Category: <%= @game.category.category %> </li>
+          <li>Console: <%= @game.console.console %> </li>
+          <li>Owner: <%= @game.user.email %> </li>
+        </ul>
+      </div>
+
+
     </div>
   </div>
 

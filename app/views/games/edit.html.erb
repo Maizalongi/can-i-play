@@ -5,6 +5,7 @@
       <div class="bg-white rounded p-3 shadow">
         <h1>Edit game</h1>
         <%= simple_form_for @game, url: url_for(@game) do |f| %>
+          <%= f.input :image, as: :file, label: "Change image:" %>
           <%= f.input :name, label: "Enter the new name:" %>
           <%= f.input :price, label: "Enter the new price:" %>
           <%= f.input :description, label: "Enter the new description:" %>

@@ -40,5 +40,5 @@ end
 private
 
 def game_params
-  params.require(:game).permit(:name, :price, :description, :active, :category_id, :console_id, :user_id)
+  params.require(:game).permit(:name, :price, :description, :active, :category_id, :console_id, :user_id, :image)
 end

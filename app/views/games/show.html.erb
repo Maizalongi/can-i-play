@@ -4,14 +4,19 @@
   <div class="row my-4">
 
     <%# game img %>
-    <div class="col-12 col-md-4 d-flex flex-column gap-2">
-      <%= image_tag "minecraft.jpg", class: "game-img-show" %>
+    <div class="col-12 col-md-4 d-flex flex-column align-items-center gap-2">
+
+      <% if @game.image.attached? %>
+        <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
+      <% else %>
+        <%= image_tag "minecraft.jpg", class: "game-img-show" %>
+      <% end %>
 
       <% if !@game.active %>
         <%= link_to "Rent", games_path , class: "btn btn-success" %>
       <% end %>
 
-      <%= link_to "Add to wishlist", games_path, class: "btn btn-primary", style: "--bs-btn-padding-x: 5px;" %>
+      <%= link_to "Add to wishlist", games_path, class: "btn btn-primary" %>
       <%= link_to "Edit", edit_game_path, class: "btn btn-primary" %>
       <%= link_to "Delete", game_path, class: "btn btn-danger" %>
 

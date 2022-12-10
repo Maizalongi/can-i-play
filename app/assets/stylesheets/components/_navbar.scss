@@ -24,16 +24,16 @@
   background-color: #5501fd;
 }
 
-
-.btn-juegos, .btn-consolas, .btn-gender {
+.btn-juegos, .btn-consolas, .btn-mygames, .btn-myrents {
   color: #44fd01;
   border: 1px solid #1c1c1c;
   padding: 15px 25px;
   border-radius: 50px;
   font-weight: lighter;
   background-color: #484747;
+  text-decoration: none;
 }
 
-.btn-juegos:hover, .btn-consolas:hover, .btn-gender:hover {
-  background-color: #5501fd;
+.btn-juegos:hover, .btn-consolas:hover, .btn-mygames:hover, .btn-myrents:hover {
+  background-color: #7b01fd;
 }

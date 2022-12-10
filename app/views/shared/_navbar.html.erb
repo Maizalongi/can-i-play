@@ -7,10 +7,17 @@
     <div class="btn-consolas">
       Consoles
     </div>
-    <div class="btn-gender">
-      Gender
+    <input type="search" id="search" placeholder="Search here"/>
+    <% if user_signed_in? %>
+    <div class="btn-mygames">
+      My games
     </div>
-    <input type="search" id="busqueda" name="q"/>
+    <% end %>
+    <% if user_signed_in? %>
+    <div class="btn-myrents">
+      My rents
+    </div>
+    <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

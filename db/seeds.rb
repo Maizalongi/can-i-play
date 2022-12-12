@@ -38,12 +38,12 @@ user4 = User.create!(email: "tomas@gmail.com", password: "12345126")
 puts "Fin de las creaciones"
 
 puts "Creando juegos..."
-minecraft = Game.create!(name: "minecraft", price: 17, description: "more than a cave game", user_id: user3.id, category_id: sandbox.id, console_id: pc.id)
-Game.create!(name: "roblox", price: 1, description: "worst game ever", user_id: user3.id, category_id: sandbox.id, console_id: nintendo_switch.id)
-Game.create!(name: "outlast", price: 25, description: "creepy", user_id: user1.id, category_id: horror.id, console_id: pc.id)
-Game.create!(name: "far cry 4", price: 45, description: "I hate Pagan Min", user_id: user1.id, category_id: shooter.id, console_id: ps4.id)
-Game.create!(name: "age of empires IV", price: 40, description: "Very fun", user_id: user2.id, category_id: strategy.id, console_id: pc.id)
-fifa2022 = Game.create!(name: "fifa2022", price: 5, description: "football game", user_id: user4.id, category_id: multiplayer.id, console_id: ps5.id)
+minecraft = Game.create!(name: "minecraft", price: 17, description: "more than a cave game", user_id: user3.id, category_id: sandbox.id, console_id: pc.id, img_url: "minecraft.jpg")
+Game.create!(name: "roblox", price: 1, description: "worst game ever", user_id: user3.id, category_id: sandbox.id, console_id: nintendo_switch.id, img_url: "roblox.jpg")
+Game.create!(name: "outlast", price: 25, description: "creepy", user_id: user1.id, category_id: horror.id, console_id: pc.id, img_url: "outlast.jpg")
+Game.create!(name: "far cry 4", price: 45, description: "I hate Pagan Min", user_id: user1.id, category_id: shooter.id, console_id: ps4.id, img_url: "farcry4.jpg")
+Game.create!(name: "age of empires IV", price: 40, description: "Very fun", user_id: user2.id, category_id: strategy.id, console_id: pc.id, img_url: "age-of-empires-4.jpg")
+fifa2022 = Game.create!(name: "fifa2022", price: 5, description: "football game", user_id: user4.id, category_id: multiplayer.id, console_id: ps5.id, img_url: "fifa2022.jpeg")
 
 puts "Creando rentas..."
 

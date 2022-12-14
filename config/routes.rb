@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :games
+  resources :games do
+    member do
+      post 'add_to_wishlist'
+      delete 'remove_of_wishlist'
+    end
+  end
   resources :rents
   get 'games/my_games'
   get 'rents/:id/accept', to: 'rents#accept', as: :rent_accept

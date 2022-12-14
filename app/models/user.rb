@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :games, dependent: :destroy
   has_many :rents, dependent: :destroy
   has_one_attached :photo
+  has_one :wishlist
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

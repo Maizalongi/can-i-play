@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_10_192939) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_14_003810) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_192939) do
     t.float "price"
     t.string "name"
     t.string "description"
-    t.boolean "active", default: true
+    t.boolean "active"
     t.bigint "category_id", null: false
     t.bigint "console_id", null: false
     t.bigint "user_id", null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_192939) do
     t.date "start_date"
     t.date "end_date"
     t.float "price"
-    t.boolean "status", default: false
+    t.boolean "status"
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
@@ -95,6 +95,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_192939) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "wishlists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "games", "categories"
@@ -102,4 +109,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_10_192939) do
   add_foreign_key "games", "users"
   add_foreign_key "rents", "games"
   add_foreign_key "rents", "users"
+  add_foreign_key "wishlists", "users"
 end

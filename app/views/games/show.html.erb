@@ -8,8 +8,6 @@
 
       <% if @game.image.attached? %>
         <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
-      <% else %>
-        <%= image_tag "minecraft.jpg", class: "game-img-show" %>
       <% end %>
 
       <% if @game.active %>
@@ -29,10 +27,10 @@
     </div>
 
     <%# game data %>
-    <div class="col-12 col-md-8">
+    <div class="cuadrojuego col-12 col-md-3">
 
 
-      <div class="d-flex flex-column justify-content-between border">
+      <div class="blackbox d-flex flex-column justify-content-between border">
         <div>
           <h1> <%= @game.name %> </h1>
           <h3> <%= "Price: $#{@game.price}" %> </h3>

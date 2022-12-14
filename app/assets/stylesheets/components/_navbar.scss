@@ -24,7 +24,7 @@
   background-color: #5501fd;
 }
 
-.btn-juegos, .btn-consolas, .btn-mygames, .btn-myrents {
+.btn-juegos, .btn-consolas, .btn-mygames, .btn-myrents, .btn-mywishlist {
   color: #44fd01;
   border: 1px solid #1c1c1c;
   padding: 15px 25px;
@@ -34,6 +34,8 @@
   text-decoration: none;
 }
 
-.btn-juegos:hover, .btn-consolas:hover, .btn-mygames:hover, .btn-myrents:hover {
+.btn-juegos:hover, .btn-consolas:hover, .btn-mygames:hover, .btn-myrents:hover, .btn-mywishlist:hover {
   background-color: #7b01fd;
 }
+
+

@@ -9,12 +9,19 @@ class RentsController < ApplicationController
 
   def new
     @rent = Rent.new
+    @game = Game.find(params[:game_id])
   end
 
   def create
     @rent = Rent.new(rent_params)
+    @user = current_user
+    @game = Game.find(params[:game_id])
+    @rent.user = @user
+    @rent.game = @game
     if @rent.save
-      redirect_to rent_path(@rent)
+      @game.active = false
+      @game.save!
+      redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity
     end
@@ -52,5 +59,5 @@ end
 private
 
 def rent_params
-  params.require(:rent).permit(:start_date, :price, :end_date, :game_id)
+  params.require(:rent).permit(:start_date, :end_date)
 end

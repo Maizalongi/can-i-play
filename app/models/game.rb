@@ -6,4 +6,5 @@ class Game < ApplicationRecord
   has_one_attached :image
 
   validates :price, comparison: { greater_than: 0 }
+
 end

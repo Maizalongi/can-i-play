@@ -1,8 +1,8 @@
-<div class="container py-5">
+<div class="container-edit py-5">
   <div class="row">
     <div class="col-md-6 offset-md-3">
 
-      <div class="bg-white rounded p-3 shadow">
+      <div class="edit bg-white rounded p-3 shadow">
         <h1>Edit game</h1>
         <%= simple_form_for @game, url: url_for(@game) do |f| %>
           <%= f.input :image, as: :file, label: "Change image:" %>

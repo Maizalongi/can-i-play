@@ -24,18 +24,40 @@
   background-color: #5501fd;
 }
 
-.btn-juegos, .btn-consolas, .btn-mygames, .btn-myrents, .btn-mywishlist {
-  color: #44fd01;
-  border: 1px solid #1c1c1c;
-  padding: 15px 25px;
-  border-radius: 50px;
-  font-weight: lighter;
-  background-color: #484747;
+.btn-navbar {
+  background: #484747; /* color de fondo */
+  color: #44fd01; /* color de fuente */
+  padding: 16px 20px;
+  border-radius: 50px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
   text-decoration: none;
+  font-weight: 300;
 }
-
-.btn-juegos:hover, .btn-consolas:hover, .btn-mygames:hover, .btn-myrents:hover, .btn-mywishlist:hover {
-  background-color: #7b01fd;
+.btn-navbar:before, .btn-navbar:after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background-color: #44fd01; /* color de fondo hover */
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-
-
+.btn-navbar:after {
+  left: 100%;
+}
+.btn-navbar:hover {
+  color: rgb(0, 0, 0); /* color de fuente hover */
+}
+.btn-navbar:hover:before {
+  left: 0;
+}
+.btn-navbar:hover:after {
+  left: 50%;
+}

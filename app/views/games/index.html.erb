@@ -9,7 +9,7 @@
     <div class="games-cards">
       <% @games.each do |game| %>
 
-        <div class="card" style="width: 18rem;">
+        <div class="card pt-2" style="width: 18rem;">
           <%= cl_image_tag game.image.key, height: 350, width: 250 %>
           <div class="card-body">
             <h5 class="card-title"><%= game.name %></h5>

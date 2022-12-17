@@ -11,13 +11,15 @@
       <% end %>
 
       <% if @game.active != true%>
-        <%= link_to "Rent", new_game_rent_path(@game), class: "btn btn-success" %>
+        <%= link_to "Rent", new_game_rent_path(@game), class: "btn btn-success", style: "--bs-btn-padding-x: 67px;" %>
       <% end %>
 
-      <% if current_user.wishlist.games.ids.include? @game.id %>
-        <%= button_to "Remove of wishlist", remove_of_wishlist_game_path(@game), method: :delete, class: "btn btn-primary", style: "--bs-btn-padding-x: 9px;" %>
-      <% else %>
-        <%= button_to "Add to wishlist", add_to_wishlist_game_path(@game), method: :post, class: "btn btn-primary", style: "--bs-btn-padding-x: 25px;" %>
+      <% if current_user %>
+        <% if current_user.wishlist.games.ids.include? @game.id %>
+          <%= button_to "Remove of wishlist", remove_of_wishlist_game_path(@game), method: :delete, class: "btn btn-primary", style: "--bs-btn-padding-x: 9px;" %>
+        <% else %>
+          <%= button_to "Add to wishlist", add_to_wishlist_game_path(@game), method: :post, class: "btn btn-primary", style: "--bs-btn-padding-x: 25px;" %>
+        <% end %>
       <% end %>
 
       <%= link_to "Edit", edit_game_path(@game), class: "btn btn-primary", style: "--bs-btn-padding-x: 67px;" %>

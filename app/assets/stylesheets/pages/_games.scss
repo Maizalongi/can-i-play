@@ -1,0 +1,40 @@
+// CSS of games views
+
+// Cards of index
+.games-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.game-img-index {
+  height: 350px;
+}
+
+.game-img-show {
+  border-radius: 2px;
+  height: 300px;
+}
+
+.game-data-list {
+  list-style: none;
+  padding: 0px;
+}
+
+.blackbox {
+  background-color: rgba(195, 195, 195, 0.993);
+  color: black;
+  width: auto;
+  height: auto;
+  border-color: black;
+  border-style: solid;
+}
+
+.container-edit {
+  color: black;
+}
+
+.edit {
+  border-color: black;
+  border-style: solid;
+}

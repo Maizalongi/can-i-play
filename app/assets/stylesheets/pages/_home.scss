@@ -1,12 +1,103 @@
 // Specific CSS for your home-page
-header.masthead {
+.masthead {
   padding-top: 10.5rem;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
+  height: auto;
   text-align: center;
   color: #fff;
   background-image: url("landing_page_image.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-position: center center;
   background-size: cover;
+  position: relative;
+  list-style: none;
+  background-position-y: -100px;
+  animation: masthead 10s infinite linear alternate;;
+}
+
+@keyframes masthead {
+  0%, 20% {
+    background-image: url("landing_page_image.jpg");
+  }
+
+  25%, 45% {
+    background-image: url("https://hardzone.es/app/uploads-hardzone.es/2020/12/Juegos.jpg");
+  }
+
+  50%, 70% {
+    background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/infobae/KY2FKJG72ZDRVHITYPJ4HXMLGU.jpg");
+  }
+
+  75%, 100% {
+    background-image: url("https://i.pinimg.com/736x/43/22/82/432282534bba11b6e9f48690462ccf7b--dead-space-grand-theft-auto.jpg");
+  }
+}
+
+
+.info h1 {
+  padding: 50px;
+  font-size: 100px;
+  margin-top: -150px;
+  color: rgb(255, 255, 255);
+}
+
+.info p {
+  font-size: 50px;
+}
+
+
+.title, .services {
+  color: white;
+  margin: 30px
+}
+
+
+.page-section {
+  background-repeat: no-repeat;
+  background-image: url("gamegif.gif");
+  background-size: cover;
+}
+
+.laptop, .cart, .gamepad {
+  margin-bottom: 60px;
+}
+
+.flip{
+  position: center;
+  transition: all 1s ease;
+  transform: perspective(600px);
+  transform-origin: 100% 50%;
+  transform-style: preserve-3d;
+  }
+  .flip:hover{
+  transform: perspective(600px) rotateY(-180deg) translateX(100%);
+  }
+
+.flip .flip-1,
+.flip .flip-2{
+position: center;
+backface-visibility: hidden;
+}
+.flip .flip-2{
+transform: rotateY(-180deg);
+}
+
+.title {
+  margin-top: -40px;
+}
+
+.flip-2 {
+  color: rgb(247, 247, 249);
+  font-size: 40px;
+  display: flex;
+  text-align: center;
+  margin-top: -150px;
+}
+
+.flip-1 {
+  margin-top: 15px;
+}
+
+.container {
+  color: white;
 }

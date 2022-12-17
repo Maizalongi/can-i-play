@@ -1,2 +1,61 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="container">
+
+  <%# game data %>
+  <div class="row my-4">
+
+    <%# game img %>
+    <div class="col-12 col-md-4 d-flex flex-column align-items-center gap-2">
+
+      <% if @game.image.attached? %>
+        <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
+      <% end %>
+
+      <% if @game.active != true%>
+        <%= link_to "Rent", new_game_rent_path(@game), class: "btn btn-success" %>
+      <% end %>
+
+      <% if current_user.wishlist.games.ids.include? @game.id %>
+        <%= button_to "Remove of wishlist", remove_of_wishlist_game_path(@game), method: :delete, class: "btn btn-primary" %>
+      <% else %>
+        <%= button_to "Add to wishlist", add_to_wishlist_game_path(@game), method: :post, class: "btn btn-primary" %>
+      <% end %>
+
+      <%= link_to "Edit", edit_game_path(@game), class: "btn btn-primary" %>
+      <%= button_to "Delete", @game, method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "btn btn-danger" %>
+
+      <%# This makes the the buttons less bigger  %>
+      <%# <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="button">Button</button>
+        <button class="btn btn-primary" type="button">Button</button>
+      </div> %>
+
+    </div>
+
+    <%# game data %>
+    <div class="cuadrojuego col-12 col-md-8">
+
+
+      <div class="blackbox d-flex flex-column justify-content-between">
+        <div>
+          <h1> <%= @game.name %> </h1>
+          <h3> <%= "Price: $#{@game.price}" %> </h3>
+          <p>  <%= @game.description %> </p>
+        </div>
+        <ul class="game-data-list">
+          <li>Category: <%= @game.category.category %> </li>
+          <li>Console: <%= @game.console.console %> </li>
+          <li>Owner: <%= @game.user.email %> </li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+
+  <%# trailer %>
+  <div class="row my-4">
+
+    <iframe src="https://www.youtube.com/embed/jMe3tdyjouM" height="400px" frameborder="0"></iframe>
+  </div>
+
+</div>

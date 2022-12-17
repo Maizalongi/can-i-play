@@ -1,12 +1,4 @@
 class RentsController < ApplicationController
-  def index
-    @rents = Rent.all
-  end
-
-  def show
-    @rent = Rent.find(params[:id])
-  end
-
   def new
     @rent = Rent.new
     @game = Game.find(params[:game_id])
@@ -32,9 +24,6 @@ class RentsController < ApplicationController
   end
 
   def update
-    @rent = Rent.find(params[:id])
-    @rent.update(rent_params)
-    redirect_to rent_path(@rent)
   end
 
   def destroy
@@ -43,16 +32,10 @@ class RentsController < ApplicationController
     redirect_to rent_path, status: :see_other
   end
 
-  def accept
-    @rent = Rent.find(params[:id])
-    @rent.status = true
-    @rent.save
+  def index
   end
 
-  def deactivate
-    @rent = Rent.find(params[:id])
-    @rent.status = false
-    @rent.save
+  def show
   end
 
   def my_rents

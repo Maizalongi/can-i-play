@@ -7,4 +7,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  after_commit :create_wishlist, on: %i[create]
+  private
+
+  def create_wishlist
+    Wishlist.create(user: self)
+  end
 end

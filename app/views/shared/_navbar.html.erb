@@ -19,9 +19,7 @@
     </div>
     <% end %>
     <% if user_signed_in? %>
-    <div class="btn-mywishlist">
-      My wishlist
-    </div>
+    <%= link_to "My Wishlist", wish_list_path, class: "btn-mywishlist"  %>
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

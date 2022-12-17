@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_14_003810) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_17_140917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +54,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_003810) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favourite_games", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_favourite_games_on_game_id"
+    t.index ["user_id"], name: "index_favourite_games_on_user_id"
+  end
+
   create_table "games", force: :cascade do |t|
     t.float "price"
     t.string "name"
@@ -68,6 +77,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_003810) do
     t.index ["category_id"], name: "index_games_on_category_id"
     t.index ["console_id"], name: "index_games_on_console_id"
     t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "games_wishlists", id: false, force: :cascade do |t|
+    t.bigint "wishlist_id", null: false
+    t.bigint "game_id", null: false
+    t.index ["game_id", "wishlist_id"], name: "index_games_wishlists_on_game_id_and_wishlist_id"
+    t.index ["wishlist_id", "game_id"], name: "index_games_wishlists_on_wishlist_id_and_game_id"
   end
 
   create_table "rents", force: :cascade do |t|
@@ -104,6 +120,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_003810) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favourite_games", "games"
+  add_foreign_key "favourite_games", "users"
   add_foreign_key "games", "categories"
   add_foreign_key "games", "consoles"
   add_foreign_key "games", "users"

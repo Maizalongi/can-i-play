@@ -48,6 +48,12 @@ class GamesController < ApplicationController
     end
     redirect_to game_path(@game)
   end
+
+  def remove_of_wishlist
+    @game = Game.find(params[:id])
+    current_user.wishlist.games.delete(@game)
+    redirect_to game_path(@game)
+  end
 end
 
 private

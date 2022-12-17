@@ -1,10 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://cdn.icon-icons.com/icons2/844/PNG/512/Playstation_icon-icons.com_67099.png" %>
-      <%= image_tag "https://cdn.icon-icons.com/icons2/2699/PNG/512/xbox_logo_icon_169692.png" %>
-      <%= image_tag "https://cdn.icon-icons.com/icons2/3053/PNG/512/origin_macos_bigsur_icon_189863.png" %>
-    <% end %>
+      <a class = "navbar-brand" href="/">
+        <%= image_tag "https://cdn.icon-icons.com/icons2/844/PNG/512/Playstation_icon-icons.com_67099.png" %>
+        <%= image_tag "https://cdn.icon-icons.com/icons2/2699/PNG/512/xbox_logo_icon_169692.png" %>
+        <%= image_tag "https://cdn.icon-icons.com/icons2/3053/PNG/512/origin_macos_bigsur_icon_189863.png" %>
+      </a>
     <%= link_to "Games", games_path, class: "btn-navbar" %>
     <!--<input type="search" id="search" placeholder="Search game by name"/>-->
     <%= form_with url: games_path, class: "d-flex", method: :get do %>

@@ -15,13 +15,13 @@
       <% end %>
 
       <% if current_user.wishlist.games.ids.include? @game.id %>
-        <%= button_to "Remove of wishlist", remove_of_wishlist_game_path(@game), method: :delete, class: "btn btn-primary" %>
+        <%= button_to "Remove of wishlist", remove_of_wishlist_game_path(@game), method: :delete, class: "btn btn-primary", style: "--bs-btn-padding-x: 9px;" %>
       <% else %>
-        <%= button_to "Add to wishlist", add_to_wishlist_game_path(@game), method: :post, class: "btn btn-primary" %>
+        <%= button_to "Add to wishlist", add_to_wishlist_game_path(@game), method: :post, class: "btn btn-primary", style: "--bs-btn-padding-x: 25px;" %>
       <% end %>
 
-      <%= link_to "Edit", edit_game_path(@game), class: "btn btn-primary" %>
-      <%= button_to "Delete", @game, method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "btn btn-danger" %>
+      <%= link_to "Edit", edit_game_path(@game), class: "btn btn-primary", style: "--bs-btn-padding-x: 67px;" %>
+      <%= button_to "Delete", @game, method: :delete, data: { confirm: 'Are you certain you want to delete this?' }, class: "btn btn-danger", style: "--bs-btn-padding-x: 58px;" %>
 
       <%# This makes the the buttons less bigger  %>
       <%# <div class="d-grid gap-2 col-6 mx-auto">
@@ -32,7 +32,7 @@
     </div>
 
     <%# game data %>
-    <div class="cuadrojuego col-12 col-md-8">
+    <div class="cuadrojuego col-12 col-md-3">
 
 
       <div class="blackbox d-flex flex-column justify-content-between">

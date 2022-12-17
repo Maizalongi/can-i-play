@@ -7,7 +7,7 @@
     <div class="col-12 col-md-4 d-flex flex-column align-items-center gap-2">
 
       <% if @game.image.attached? %>
-        <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
+        <%= cl_image_tag @game.image.key, height: 350, width: 250 %>
       <% end %>
 
       <% if @game.active != true%>

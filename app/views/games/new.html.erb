@@ -7,6 +7,7 @@
           <%= f.input :name, placeholder: 'Enter the name of the game' %>
           <%= f.input :price, placeholder: 'Enter the price of the game' %>
           <%= f.input :description, placeholder: 'Enter a description of the game' %>
+          <%= f.input :image, as: :file, label: "Add an image:" %>
           <%= f.association :category, collection: Category.all.map{|category| [category.category, category.id]}, prompt: "Select a category"%>
           <%= f.association :console, collection: Console.all.map{|console| [console.console, console.id]} ,prompt: "Select a console"%>
           <%= f.submit class: "btn-newgame" %>

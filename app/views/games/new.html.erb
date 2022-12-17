@@ -1,7 +1,7 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="bg-white rounded p-3 shadow container-edit">
         <h3>Add a new game</h3>
         <%= simple_form_for @game do |f| %>
           <%= f.input :name, placeholder: 'Enter the name of the game' %>
@@ -9,7 +9,7 @@
           <%= f.input :description, placeholder: 'Enter a description of the game' %>
           <%= f.association :category, collection: Category.all.map{|category| [category.category, category.id]}, prompt: "Select a category"%>
           <%= f.association :console, collection: Console.all.map{|console| [console.console, console.id]} ,prompt: "Select a console"%>
-          <%= f.submit class: "btn btn-flat" %>
+          <%= f.submit class: "btn-newgame" %>
         <% end %>
       </div>
     </div>

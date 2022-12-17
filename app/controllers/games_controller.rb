@@ -37,6 +37,23 @@ class GamesController < ApplicationController
     @game.destroy
     redirect_to games_path, status: :see_other
   end
+
+  def add_to_wishlist
+    @game = Game.find(params[:id])
+    if current_user.wishlist
+      current_user.wishlist.games << @game
+    else
+      @wishlist = Wishlist.create(user: current_user)
+      current_user.wishlist.games << @game
+    end
+    redirect_to game_path(@game)
+  end
+
+  def remove_of_wishlist
+    @game = Game.find(params[:id])
+    current_user.wishlist.games.delete(@game)
+    redirect_to game_path(@game)
+  end
 end
 
 private

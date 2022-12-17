@@ -2,13 +2,11 @@
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
       <div class="bg-white rounded p-3 shadow">
-        <h3>Add a new game</h3>
-        <%= simple_form_for @game do |f| %>
-          <%= f.input :start_date, placeholder: 'Enter the starting date of your rent' %>
-          <%= f.input :end_date, placeholder: 'Enter the end date of your rent' %>
-          <%= f.input :price, placeholder: 'Enter a description of the game' %>
-          <%= f.association :game, collection: Game.all.map{|category| [category.category, category.id]}, prompt: "Select a category"%>
-          <%= f.submit class: "btn btn-flat" %>
+        <h3>Rent</h3>
+        <%= simple_form_for [@game, @rent], data: { controller: 'flatpickr' } do |f| %>
+          <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
+          <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" }, id: 'end_date'  } %>
+          <%= f.submit 'rent this game', class: "btn btn-flat" %>
         <% end %>
       </div>
     </div>

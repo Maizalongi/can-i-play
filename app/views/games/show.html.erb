@@ -10,8 +10,8 @@
         <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
       <% end %>
 
-      <% if !@game.active %>
-        <%= link_to "Rent", games_path , class: "btn btn-success" %>
+      <% if @game.active %>
+        <%= link_to "Rent", new_game_rent_path(@game), class: "btn btn-success" %>
       <% end %>
 
       <% if current_user.wishlist.games.ids.include? @game.id %>
@@ -35,7 +35,7 @@
     <div class="cuadrojuego col-12 col-md-8">
 
 
-      <div class="blackbox d-flex flex-column justify-content-between border">
+      <div class="blackbox d-flex flex-column justify-content-between">
         <div>
           <h1> <%= @game.name %> </h1>
           <h3> <%= "Price: $#{@game.price}" %> </h3>

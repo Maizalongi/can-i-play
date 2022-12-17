@@ -2,12 +2,22 @@
   color: white;
 }
 
-.form-actions-password:hover {
-  background-color: rgba(255, 153, 0, 0.778);
-  color: white;
+.form-control {
   width: 325px;
 }
 
-.form-control {
+.container-signup {
+  margin-left: 10px;
+  color: white;
+}
+
+.container-pass {
+  margin-left: 10px;
+  color: white;
+}
+
+.form-actions-password {
   width: 325px;
+  color: white;
+  text-align: center;
 }

@@ -1,12 +1,12 @@
 <div class="container py-5">
   <div class="row">
     <div class="col-12 col-md-6 offset-lg-3">
-      <div class="bg-white rounded p-3 shadow">
+      <div class="bg-white rounded p-3 shadow container-edit">
         <h3>Rent</h3>
         <%= simple_form_for [@game, @rent], data: { controller: 'flatpickr' } do |f| %>
           <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
           <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" }, id: 'end_date'  } %>
-          <%= f.submit 'rent this game', class: "btn btn-flat" %>
+          <%= f.submit 'Rent this game', class: "btn-newgame" %>
         <% end %>
       </div>
     </div>

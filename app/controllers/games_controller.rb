@@ -1,7 +1,11 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   def index
-    @games = Game.all
+    if params[:query].present?
+      @games = Game.search_game_by_name(params[:query])
+    else
+      @games = Game.all
+    end
   end
 
   def show
@@ -40,6 +44,23 @@ class GamesController < ApplicationController
 
   def my_games
     @games = Game.where(user: current_user)
+  end
+
+  def add_to_wishlist
+    @game = Game.find(params[:id])
+    if current_user.wishlist
+      current_user.wishlist.games << @game
+    else
+      @wishlist = Wishlist.create(user: current_user)
+      current_user.wishlist.games << @game
+    end
+    redirect_to game_path(@game)
+  end
+
+  def remove_of_wishlist
+    @game = Game.find(params[:id])
+    current_user.wishlist.games.delete(@game)
+    redirect_to game_path(@game)
   end
 end
 

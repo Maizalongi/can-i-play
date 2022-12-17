@@ -55,6 +55,8 @@ gem "simple_form", github: "heartcombo/simple_form"
 
 # Cloudinary for images and other assets
 gem "cloudinary"
+# Search gem
+gem "pg_search"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

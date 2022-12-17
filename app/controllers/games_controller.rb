@@ -37,6 +37,10 @@ class GamesController < ApplicationController
     @game.destroy
     redirect_to games_path, status: :see_other
   end
+
+  def my_games
+    @games = Game.where(user: current_user)
+  end
 end
 
 private

@@ -8,6 +8,7 @@ class Game < ApplicationRecord
   validates :price, comparison: { greater_than: 0 }
 
   after_commit :add_default_image, on: %i[create]
+
   private
 
   def add_default_image

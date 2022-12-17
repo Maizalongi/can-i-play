@@ -1,2 +1,25 @@
-<h1>Games#my_games</h1>
-<p>Find me in app/views/games/my_games.html.erb</p>
+<div class="container text-center mt-3">
+  <h1>My Games</h1>
+
+  <%# Filtros %>
+
+
+  <%# Cards de los games %>
+  <div class="container">
+    <div class="games-cards">
+      <% @games.each do |game| %>
+
+        <div class="card" style="width: 18rem;">
+          <%= cl_image_tag game.image.key, height: 350, width: 250, crop: :lpad %>
+          <div class="card-body">
+            <h5 class="card-title"><%= game.name %></h5>
+            <p class="card-text"><%= game.description %></p>
+            <%= link_to "More", game_path(game), class: "btn btn-primary" %>
+          </div>
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+
+</div>

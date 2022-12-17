@@ -10,7 +10,7 @@
         <%= cl_image_tag @game.image.key, height: 350, width: 250, crop: :lpad %>
       <% end %>
 
-      <% if @game.active %>
+      <% if @game.active != true%>
         <%= link_to "Rent", new_game_rent_path(@game), class: "btn btn-success" %>
       <% end %>
 

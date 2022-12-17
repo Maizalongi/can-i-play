@@ -11,14 +11,10 @@
     </div>
     <input type="search" id="search" placeholder="Search here"/>
     <% if user_signed_in? %>
-    <div class="btn-navbar">
-      My games
-    </div>
+    <%= link_to "My Games", user_games_path, class: "btn-navbar" %>
     <% end %>
     <% if user_signed_in? %>
-    <div class="btn-navbar">
-      My rents
-    </div>
+    <%= link_to "My Rents", user_rents_path, class: "btn-navbar" %>
     <% end %>
     <% if user_signed_in? %>
     <div class="btn-navbar">

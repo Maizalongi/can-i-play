@@ -54,6 +54,18 @@ class RentsController < ApplicationController
     @rent.status = false
     @rent.save
   end
+
+  def my_rents
+    rents = Rent.where(user: current_user)
+    games = Game.all
+    rented_games = []
+    rents.each do |rent|
+      games.each do |game|
+        rented_games.append(game) if rent.game_id == game.id
+      end
+    end
+    @rented_games = rented_games
+  end
 end
 
 private
